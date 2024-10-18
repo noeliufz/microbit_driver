@@ -31,7 +31,7 @@ $(TARGET): $(OBJS)
 upload: $(TARGET)
 	"$(OBJCOPY)" -O binary $(TARGET) program.bin
 
-	"$(OPENOCD)" -f interface/cmsis-dap.cfg -f target/nrf52.cfg -c "program program.elf verify reset exit"
+	sudo "$(OPENOCD)" -f interface/cmsis-dap.cfg -f target/nrf52.cfg -c "program program.elf verify reset exit"
 
 clean:
 	rm $(TARGET) $(OBJS) >/dev/null 2>/dev/null || true
